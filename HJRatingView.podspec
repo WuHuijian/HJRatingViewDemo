@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HJRatingView"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "简单易用的评分视图."
 
   # This description is used to generate tags and improve search results.
