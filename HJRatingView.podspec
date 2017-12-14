@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HJRatingView"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "简单易用的评分视图."
 
   # This description is used to generate tags and improve search results.
@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
 
-  s.source_files  = "HJRatingViewDemo/RatingView", "*.{h,m,xcassets}"
+  s.source_files  = "HJRatingViewDemo/RatingView", "*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
