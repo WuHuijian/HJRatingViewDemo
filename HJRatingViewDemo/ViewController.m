@@ -45,6 +45,10 @@
     [self.view addSubview:ratingView];
     self.ratingView = ratingView;
     
+    
+    //测试赋值显示评分 赋值显示后不能手动评分
+    self.ratingView.showScore = 5.f;
+    
     [self setupOtherViews];
     
 }

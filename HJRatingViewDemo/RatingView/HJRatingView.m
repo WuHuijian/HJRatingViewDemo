@@ -64,6 +64,11 @@
     self.frame = rect;
 }
 
+- (void)setMaxScore:(CGFloat)maxScore{
+    _maxScore = maxScore;
+    self.topItemView.maxScore = maxScore;
+}
+
 #pragma mark - Life Circle
 
 #pragma mark - About UI
@@ -102,7 +107,19 @@
     self.topItemView.itemBGColor = itemBGColor;
 }
 #pragma mark - Getters/Setters/Lazy
-
+- (void)setShowScore:(CGFloat)showScore{
+   
+    if (showScore>=self.maxScore){
+        showScore = _maxScore;
+    }
+    
+    _showScore = showScore;
+    
+    self.userInteractionEnabled = NO;
+   
+    [self.topItemView changeFrameWithScore:_showScore];
+    
+}
 #pragma mark - Delegate methods
 
 @end
@@ -191,6 +208,18 @@
     }];
 }
 
+- (void)changeFrameWithScore:(CGFloat)score{
+    
+    CGFloat length = self.imgVs.count*_itemW;
+    CGFloat scale = score/self.maxScore;
+    CGFloat itemLength = scale*length;
+    CGFloat topItemCount = itemLength/_itemW;
+    BOOL isInteger = (topItemCount - floor(topItemCount))==0;
+    CGFloat marginLength = isInteger?(topItemCount-1)*_margin:topItemCount*_margin-0.5*_margin;
+    CGFloat topW = itemLength+marginLength;
+    self.frame = CGRectMake(0, 0, topW,_itemW);
+}
+
 #pragma mark - Getters/Setters/Lazy
 - (NSMutableArray *)imgVs{
     if (!_imgVs) {
@@ -206,6 +235,7 @@
         imageV.backgroundColor = itemBGColor;
     }];
 }
+
 
 #pragma mark - Delegate methods
 

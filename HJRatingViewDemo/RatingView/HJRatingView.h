@@ -29,6 +29,8 @@ typedef NS_OPTIONS(NSUInteger, HJRatingViewOperationType) {
 @property (nonatomic, assign) HJRatingViewOperationType operationTypes;
 /** 单元背景色 */
 @property (nonatomic, strong) UIColor *itemBGColor;
+/** 根据设置分数显示评分（纯显示控件） */
+@property (nonatomic, assign) CGFloat showScore;
 
 
 - (instancetype)initWithItemWidth:(CGFloat)width margin:(CGFloat)margin;
@@ -51,6 +53,8 @@ typedef NS_OPTIONS(NSUInteger, HJRatingViewOperationType) {
 @property (nonatomic, strong) NSMutableArray *imgVs;
 
 @property (nonatomic, assign) HJRatingViewOperationType operationTypes;
+/** 最高评分 */
+@property (nonatomic, assign) CGFloat maxScore;
 
 /** 单元背景色 */
 @property (nonatomic, strong) UIColor *itemBGColor;
@@ -61,8 +65,10 @@ typedef NS_OPTIONS(NSUInteger, HJRatingViewOperationType) {
 - (instancetype)initWithItemWidth:(CGFloat)width margin:(CGFloat)margin;
 
 - (void)setImageName:(NSString *)imageName;
-
+// 手动评分 （评分控件）
 - (void)changeFrameWithPoint:(CGPoint)point;
+// 根据设置分数显示评分（纯显示控件）
+- (void)changeFrameWithScore:(CGFloat)score;
 
 
 @end
